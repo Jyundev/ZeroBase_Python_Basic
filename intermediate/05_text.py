@@ -89,21 +89,94 @@
 #
 # writePrimeNumber()
 # readFile()
-
-path = "C:/Users/YUN/Python"
-
+# import random
+#
+# path = "C:/Users/YUN/Python/"
+#
+#
 # file = open(path + 'asWith.txt', 'a')
 # file.write('python study')
 # file.close()
 #
-# file = open(path + 'asWith.txt', 'r')
+# file = open(path + '/asWith.txt', 'r')
 # str = file.read()
 # print(str)
 # file.close()
 #
-# with open(path + 'asWith.txt', 'a') as f:
+# with open(path + '/asWith.txt', 'a') as f:
 #     f.write('\nUse As ~ With')
 #
 # with open(path + 'asWith.txt', 'r') as f:
 #     print(f.read())
+import random
 
+path = "C:/Users/YUN/Python/"
+
+#
+# def lottoNumber(nums):
+#     for idx, num in enumerate(nums):
+#         with open(path + 'Lotto.txt', 'a') as f:
+#             if idx < len(nums) - 2:
+#                 f.write(str(num) + ', ')
+#             elif idx == len(nums) - 2:
+#                 f.write(str(num) + '\n')
+#             else:
+#                 f.write('bonus : ' + str(num))
+#     with open(path + 'Lotto.txt', 'r') as f:
+#         print(f.read())
+#
+#
+# nums = random.sample(range(1, 46), 7)
+# lottoNumber(nums)
+# languages = ['c/c++', 'java', 'python', 'kotlin', 'c#']
+# for item in languages:
+#     with open(path + 'languages.txt', 'a') as f:
+#         f.write(item)
+#         f.write('\n')
+#
+# languages = ['c/c++', 'java', 'python', 'kotlin', 'c#']
+# with open(path + 'languages_line.txt', 'a') as f:
+#     f.writelines(item + '\n' for item in languages)
+#     print(languages, file=f) #리스트로 출력
+#
+# with open(path + 'languages.txt', 'r') as f:
+#     lanList = f.readlines()
+#
+# print(f'lanList : {lanList}')
+# print(f'lanList Type : {type(lanList)}')
+#
+# with open(path + 'languages.txt', 'r') as f:
+#     line = f.readline()
+#
+#     while line != '':
+#         print(f'line : {line}', end='')
+#         line = f.readline()
+
+# scoreDic = {}
+#
+# with open(path + 'scores.txt', 'r') as file:
+#     line = file.readline()
+#     while line != '':
+#         num = line.find(':')
+#         item = line[:num]
+#         try:
+#             key = int(line[num:])
+#         except:
+#             key = int(line[num + 1:])
+#
+#         scoreDic.update({item: key})
+#         line = file.readline()
+#
+# print(scoreDic)
+scoreDic = {}
+
+with open(path + 'scores.txt', 'r') as file:
+    line = file.readline()
+    while line != '':
+        scoreList = line.split(':')
+        item = scoreList[0]
+        key = int(scoreList[1].strip('\n'))
+        scoreDic[item] = key
+        line = file.readline()
+
+print(scoreDic)
